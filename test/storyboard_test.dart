@@ -4,19 +4,19 @@ import 'package:storyboard/storyboard.dart';
 
 class IconFaceNatureStory extends Story {
   @override
-  List<Widget> get storyContent =>
+  List<Widget> storyContent(BuildContext context) =>
       [const Icon(Icons.face), const Icon(Icons.nature)];
 }
 
 class IconHomePhotostory extends Story {
   @override
-  List<Widget> get storyContent =>
+  List<Widget> storyContent(BuildContext context) =>
       [const Icon(Icons.home), const Icon(Icons.photo)];
 }
 
 class IconFullscreenStory extends FullScreenStory {
   @override
-  List<Widget> get storyContent => [
+  List<Widget> storyContent(BuildContext context) => [
         new SimpleDialog(
             children: [const Icon(Icons.cloud), const Icon(Icons.local_drink)]),
       ];
@@ -24,7 +24,7 @@ class IconFullscreenStory extends FullScreenStory {
 
 class IconFullscreenMultiStory extends FullScreenStory {
   @override
-  List<Widget> get storyContent => [
+  List<Widget> storyContent(BuildContext context) => [
         new SimpleDialog(
             children: [const Icon(Icons.alarm), const Icon(Icons.android)]),
         new SimpleDialog(

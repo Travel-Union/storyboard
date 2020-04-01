@@ -75,7 +75,7 @@ class Storyboard extends StatelessWidget {
 abstract class Story extends StatelessWidget {
   const Story({Key key}) : super(key: key);
 
-  List<Widget> get storyContent;
+  List<Widget> storyContent(BuildContext context);
 
   String get title => new ReCase(runtimeType.toString()).titleCase;
 
@@ -105,17 +105,17 @@ abstract class Story extends StatelessWidget {
         leading: const Icon(Icons.list),
         key: new PageStorageKey<Story>(this),
         title: new Text(title),
-        children: storyContent.map(_widgetListItem).toList(),
+        children: storyContent(context).map(_widgetListItem).toList(),
       );
     } else {
-      if (storyContent.length == 1) {
-        return _widgetTileLauncher(storyContent[0], title, context);
+      if (storyContent(context).length == 1) {
+        return _widgetTileLauncher(storyContent(context)[0], title, context);
       } else {
         return new ExpansionTile(
           leading: const Icon(Icons.fullscreen),
           key: new PageStorageKey<Story>(this),
           title: new Text(title),
-          children: storyContent
+          children: storyContent(context)
               .map((Widget w) => _widgetTileLauncher(w, title, context))
               .toList(),
         );
